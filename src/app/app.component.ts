@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'my-app';
+
+  teams$ :Observable<any> = this.http.get('/api/teams');
+
+  constructor(private http: HttpClient){}
 }
